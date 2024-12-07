@@ -1,0 +1,32 @@
+<div class="container letra">
+  <div class="row">
+    <div class="col-md-12" style="padding-bottom: 235px;">
+      <br>
+      <h1 class="text-center">Ofrecemos los Siguientes Servicios</h1>
+    </div>
+  </div>
+
+  <!-- Mostramos los servicios -->
+  <div *ngIf="servicios.length > 0; else noServicios">
+    <div *ngFor="let servicio of servicios" class="row mb-4">
+      <div class="col-md-4">
+        <!-- Aquí puedes ajustar cómo quieres mostrar la información de cada servicio -->
+        <div class="card">
+          <img src="{{'assets/servicios.jpeg'}}" alt="Imagen del servicio" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">{{ servicio.nombre }}</h5>
+            <p class="card-text">{{ servicio.descripcion }}</p>
+            <!-- Aquí podrías añadir un botón para más información o contacto -->
+            <a href="#" class="btn btn-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje en caso de que no haya servicios -->
+  <ng-template #noServicios>
+    <p class="text-center">No se encontraron servicios disponibles en este momento.</p>
+  </ng-template>
+</div>
+
